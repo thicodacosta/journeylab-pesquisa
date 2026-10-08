@@ -5,71 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer" />
-    <title>Pesquisa · JourneyLab</title>
+    <title>Pesquisa · Candydate</title>
     <meta name="description" content="Pesquisa confidencial de experiência do colaborador." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist:wght@500;600;700&display=swap" />
     <style>
+      /* Tokens do design system Candy Studio (design-system/candy-studio). */
       :root {
-        --navy: #0b1f3a;
-        --teal: #14b8a6;
-        --ink: #0b1f3a;
-        --muted: #526173;
-        --bg: #f6f8fa;
+        --primary: #4f46e5;
+        --ink: #18181b;
+        --muted: #71717a;
+        --bg: #fafafa;
         --surface: #ffffff;
-        --border: #e2e8ee;
-        --border-strong: #d5dde6;
-        --primary-ink: #0b7a70;
-        --cta: #0b1f3a;
+        --border: #e4e4e7;
+        --border-strong: #d4d4d8;
+        --primary-ink: #4f46e5;
+        --cta: #4f46e5;
+        --cta-hover: #4338ca;
         --on-cta: #ffffff;
-        --ring: rgba(20, 184, 166, 0.45);
-        --danger: #c7353a;
-        --soft: #e6f7f5;
+        --ring: rgba(79, 70, 229, 0.18);
+        --danger: #dc2626;
+        --soft: #eef2ff;
+        --header-bg: rgba(255, 255, 255, 0.85);
+        --mesh: radial-gradient(at 20% 0%, #e0e7ff 0, transparent 50%), radial-gradient(at 80% 20%, #ede9fe 0, transparent 50%);
         color-scheme: light;
       }
       @media (prefers-color-scheme: dark) {
         :root:not([data-theme="light"]) {
-          --ink: #e8eef5;
-          --muted: #9aaabd;
-          --bg: #0a1628;
-          --surface: #0f1f36;
-          --border: #1e3350;
-          --border-strong: #24395a;
-          --primary-ink: #5eead4;
-          --cta: #2dd4bf;
-          --on-cta: #06201c;
-          --danger: #ff7a7e;
-          --soft: rgba(45, 212, 191, 0.12);
+          --ink: #fafafa;
+          --muted: #a1a1aa;
+          --bg: #09090b;
+          --surface: #18181b;
+          --border: #27272a;
+          --border-strong: #3f3f46;
+          --primary-ink: #a5b4fc;
+          --ring: rgba(129, 140, 248, 0.28);
+          --danger: #f87171;
+          --soft: rgba(99, 102, 241, 0.16);
+          --header-bg: rgba(9, 9, 11, 0.85);
+          --mesh: radial-gradient(at 20% 0%, rgba(79, 70, 229, 0.18) 0, transparent 50%), radial-gradient(at 80% 20%, rgba(124, 58, 237, 0.14) 0, transparent 50%);
           color-scheme: dark;
         }
-      }
-      :root[data-theme="dark"] {
-        --ink: #e8eef5;
-        --muted: #9aaabd;
-        --bg: #0a1628;
-        --surface: #0f1f36;
-        --border: #1e3350;
-        --border-strong: #24395a;
-        --primary-ink: #5eead4;
-        --cta: #2dd4bf;
-        --on-cta: #06201c;
-        --danger: #ff7a7e;
-        --soft: rgba(45, 212, 191, 0.12);
-        color-scheme: dark;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        background: var(--bg);
+        background: var(--mesh), var(--bg);
+        background-repeat: no-repeat;
+        background-size: 100% 520px, auto;
         color: var(--ink);
         font: 400 15px/24px Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       header.topo {
-        background: var(--navy);
-        color: #d8e1ec;
-        padding: 14px 16px;
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        background: var(--header-bg);
+        -webkit-backdrop-filter: saturate(180%) blur(12px);
+        backdrop-filter: saturate(180%) blur(12px);
+        border-bottom: 1px solid var(--border);
+        color: var(--ink);
+        padding: 12px 16px;
       }
       header.topo .marca {
         max-width: 720px;
@@ -78,17 +76,17 @@
         align-items: center;
         justify-content: space-between;
         gap: 12px;
-        font: 700 15px/20px "Plus Jakarta Sans", Inter, sans-serif;
+        font: 600 15px/20px Geist, Inter, sans-serif; letter-spacing: -0.02em;
       }
-      header.topo img { height: 26px; background: #fff; border-radius: 6px; padding: 3px 6px; }
-      .progresso { position: sticky; top: 0; z-index: 2; height: 4px; background: var(--border); }
-      .progresso span { display: block; height: 100%; width: 0; background: var(--teal); transition: width 0.25s ease; }
+      header.topo img { height: 24px; width: auto; }
+      .progresso { position: sticky; top: 49px; z-index: 2; height: 4px; background: var(--border); }
+      .progresso span { display: block; height: 100%; width: 0; background: var(--primary); transition: width 360ms cubic-bezier(0.16, 1, 0.3, 1); }
       main { max-width: 720px; margin: 0 auto; padding: 28px 16px 64px; }
       .eyebrow { margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary-ink); }
-      h1 { margin: 0 0 10px; font: 800 28px/34px "Plus Jakarta Sans", Inter, sans-serif; letter-spacing: -0.02em; }
+      h1 { margin: 0 0 10px; font: 600 30px/36px Geist, Inter, sans-serif; letter-spacing: -0.02em; }
       .lead { margin: 0 0 20px; color: var(--muted); white-space: pre-line; }
       .aviso { padding: 12px 14px; border-radius: 12px; background: var(--soft); font-size: 13.5px; margin-bottom: 20px; }
-      fieldset { margin: 0 0 14px; padding: 16px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+      fieldset { margin: 0 0 14px; padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: 0 1px 2px rgba(24, 24, 27, 0.04); }
       fieldset.erro { border-color: var(--danger); }
       legend { float: left; width: 100%; padding: 0; margin: 0 0 12px; font-weight: 600; }
       legend .num { color: var(--primary-ink); margin-right: 6px; }
@@ -103,7 +101,7 @@
         border: 1px solid var(--border-strong); border-radius: 10px; font-weight: 600; text-align: center;
       }
       .escala input:checked + span, .opcoes input:checked + span { background: var(--cta); border-color: var(--cta); color: var(--on-cta); }
-      .escala input:focus-visible + span, .opcoes input:focus-visible + span { outline: 2px solid var(--teal); outline-offset: 2px; }
+      .escala input:focus-visible + span, .opcoes input:focus-visible + span { outline: none; box-shadow: 0 0 0 4px var(--ring); }
       .pontas { display: flex; justify-content: space-between; margin-top: 6px; font-size: 12px; color: var(--muted); clear: both; }
       .opcoes { display: grid; gap: 6px; clear: both; }
       .opcoes span { display: block; padding: 10px 12px 10px 38px; border: 1px solid var(--border-strong); border-radius: 10px; position: relative; }
@@ -115,16 +113,17 @@
         background: var(--surface); color: var(--ink); font: inherit; clear: both; display: block;
       }
       textarea { min-height: 96px; resize: vertical; }
-      textarea:focus, input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px var(--ring); }
+      textarea:focus, input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
       label.campo { display: block; font-weight: 600; margin: 0 0 6px; }
       .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; clear: both; }
       .msg-erro { color: var(--danger); font-size: 13px; margin: 8px 0 0; clear: both; }
       button.enviar {
         width: 100%; min-height: 48px; border: 0; border-radius: 12px; background: var(--cta); color: var(--on-cta);
-        font: 600 16px/20px Inter, sans-serif; cursor: pointer;
+        font: 600 16px/20px Inter, sans-serif; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16, 1, 0.3, 1), transform 120ms cubic-bezier(0.16, 1, 0.3, 1);
       }
       button.enviar:disabled { opacity: 0.6; cursor: wait; }
-      button.enviar:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+      button.enviar:hover { background: var(--cta-hover); transform: translateY(-1px); }
+      button.enviar:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--ring); }
       .estado { text-align: center; padding: 60px 0; }
       .estado h1 { font-size: 26px; }
       .rodape { margin-top: 28px; text-align: center; color: var(--muted); font-size: 12px; }
@@ -136,7 +135,7 @@
     </style>
   </head>
   <body>
-    <header class="topo"><div class="marca"><span id="empresa">Pesquisa</span><img src="journeylab-logo.png" alt="JourneyLab" /></div></header>
+    <header class="topo"><div class="marca"><span id="empresa">Pesquisa</span><img src="candydate-logo.png" alt="Candydate" /></div></header>
     <div class="progresso" aria-hidden="true"><span id="barra"></span></div>
     <main id="conteudo" aria-live="polite">
       <div class="estado"><p>Carregando a pesquisa…</p></div>
@@ -289,7 +288,7 @@
             enviar.textContent = "Enviar respostas";
           }
         });
-        $("conteudo").replaceChildren(form, el("p", { class: "rodape", text: "Pesquisa conduzida com JourneyLab." }));
+        $("conteudo").replaceChildren(form, el("p", { class: "rodape", text: "Pesquisa conduzida com Candydate." }));
       }
 
       (async () => {
